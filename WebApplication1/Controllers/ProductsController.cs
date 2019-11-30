@@ -16,9 +16,9 @@ namespace WebApplication1.Controllers
         }
         public ActionResult Add(int id, string name, int Quantity)
         {
-            
-            var products = Session["product"] as List<Product>;
-            if(products == null)
+
+            var products = Session["products"] as List<Product>;
+            if (products == null)
             {
                 products = new List<Product>();
             }
@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
                     break;
                 }
             }
-            if(!existId)
+            if (!existId)
             {
                 Product product = new Product()
                 {
@@ -42,7 +42,7 @@ namespace WebApplication1.Controllers
                 };
                 products.Add(product);
             }
-            
+
             Session["products"] = products;
 
             return Redirect("~/Products/Get");
@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
         public ActionResult Get()
         {
             var products = Session["products"] as List<Product>;
-            ViewBag.Products= products;
+            ViewBag.Product = products;
             return View("Index");
         }
     }

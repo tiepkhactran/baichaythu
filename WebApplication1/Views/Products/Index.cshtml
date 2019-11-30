@@ -1,14 +1,16 @@
 ﻿@using WebApplication1.Models;
 @{
     ViewBag.Title = "Index";
-    var products = ViewBag.Products as List<Product>;
+    var products = ViewBag.Product as List<Product>;
 }
 
 <h2>Index</h2>
 <ul>
-    @foreach(var item in products)
+    @foreach (var item in products)
     {
+
         <li>@item.Id - @item.Name - @item.Quantity</li>
+
     }
 </ul>
 
